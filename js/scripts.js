@@ -108,7 +108,7 @@ function speakans(speakid) {
       break;
     }else{
       //如果沒有則使用預設中文語音
-      msg.lang = 'zh-TW';
+      msg.lang = 'en-US';
     }
   }
   window.speechSynthesis.cancel();
