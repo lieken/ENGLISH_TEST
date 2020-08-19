@@ -109,6 +109,7 @@ function speakans(speakid) {
     }else{
       //如果沒有則使用預設中文語音
       msg.lang = 'en-US';
+      msg.rate = 0.7;
     }
   }
   window.speechSynthesis.cancel();
