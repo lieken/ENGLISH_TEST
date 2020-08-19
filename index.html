@@ -6,12 +6,6 @@
             <script type="text/javascript" >
             var QuestionArray; 
 
-            function speakans(speakid) {
-                var msg = new SpeechSynthesisUtterance(speakid);
-                msg.volume = 100;
-                window.speechSynthesis.speak(msg);
-                alert(speakid);
-                };
             $.ajax({
                 type:"GET",
                 url: "https://script.google.com/macros/s/AKfycbzl4LU9XTQrbMlHO7PbjPhE9r0MpXlBGmUCD0Ng25If8ruVLAJP/exec",
@@ -56,31 +50,38 @@
                     var string2 = string.replace(/,/g," ");
               　    var NewArray = string2.split(" ");
                     var max = NewArray.length;
-                  for(var z=0;z<max;z++){
+                  for(var z=0;z<=max;z++){
                     if(NewArray[z] == ""){
+                        max = max - 1;
                       for(var g=z;g<max;g++){
                       NewArray[g] = NewArray[g+1];
                       }
-                      max = max - 1;
                     }
                   }
+
                   var ran = Math.floor(Math.random()*max)
+                  while (NewArray[ran].length<4){
+                    var ran = Math.floor(Math.random()*max)
+                    var answer = NewArray[ran]
+                  }
                   var answer = NewArray[ran]
                   //document.write( "<br>"+(f+1)+". 題目: " + string.replace(answer,"____"))
-                  if (ran == 0){
-                    answer = NewArray[ran].toLowerCase()
-                  }
+                 
                   answer = answer.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\ |\=|\||\\|\[|\]|\{|\}|\;|\:|\”|\,|\<|\.|\>|\/|\?]/g,"");
                   //document.write( "<br>"+"答案: "+"<p id = speakanswer>" +answer +"</p>")
-                  //console.log(answer);
+                  
                   qtArray[0][f] = tArray[0][f];
                   qtArray[1][f] = string;
                   qtArray[2][f] = string.replace(answer,"____");
+                  if (ran == 0){
+                    answer = NewArray[ran].toLowerCase()
+                  }
                   qtArray[3][f] = answer;
+
                     }
                   //console.log(qtArray)
                   QuestionArray = qtArray
-                  console.log(QuestionArray) 
+                  //console.log(QuestionArray) 
                 },
                 error: function(){alert("失敗！")}
               });
