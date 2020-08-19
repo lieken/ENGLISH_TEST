@@ -11,11 +11,16 @@
     if (i.value==""||t.value=="")
     {
     alert("請輸入學號或姓名")
+    location.replace("#about")
     return false;
     }
     else
     {
+      let ansValue1 = document.querySelector('#answerValue1').value;
+      if (ansValue1==""){
       location.replace("#test1");
+      return false;
+    }
     //alert(i.value)
     return true;
     }
@@ -122,6 +127,7 @@ let sendansButton = document.getElementById("answer");
 function send(QuestionArray) {
   let name = document.querySelector('#nameValue').value;
   let number = document.querySelector('#numberValue').value;
+  if (testuser()){
   let Question = QuestionArray;
   //題目答案
   let ansValue1 = document.querySelector('#answerValue1').value;
@@ -238,9 +244,11 @@ function send(QuestionArray) {
         "quesValue10": quesValue10,
     },
     success: function(response) {
-      alert("成功");
-      console.log(response);
+      alert("作答完畢");
+      window.close();
     },
     error: function(){alert("失敗！")}
   });
+}else{
+}
 };
