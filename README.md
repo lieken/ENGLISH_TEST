@@ -15,9 +15,52 @@
 
 ### 特色
 * 發音功能
+```
+var synth = window.speechSynthesis;
+let sendButton = document.getElementById("speakans");
+function speakans(speakid) {
+  var msg = new SpeechSynthesisUtterance(speakid);
+  let voices =synth.getVoices();
+
+  for(let index = 0; index < voices.length; index++) {
+    if(voices[index].name == "Google US English"){       
+      msg.voice = voices[index];
+      msg.rate = 0.6;
+      break;
+    }else{
+      //如果沒有則使用預設中文語音
+      msg.lang = 'en-US';
+      msg.rate = 0.6;
+    }
+  }
+  window.speechSynthesis.cancel();
+  setTimeout(function speaka(){ synth.speak(msg)}, 1000);
+};
+```
 * 倒數時間
+```
+function initializeClock(id, endtime) {
+  const clock = document.getElementById(id);
+  const minutesSpan = clock.querySelector('.minutes');
+  const secondsSpan = clock.querySelector('.seconds');
+  
+  function updateClock() {
+    const t = getTimeRemaining(endtime);
+    //console.log(t.total) 
+    if(t.total == 0){
+      alert("時間到!趕快交卷!");
+    }
+    //daysSpan.innerHTML = t.days;
+    //hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+  }
+  updateClock();
+  const timeinterval = setInterval(updateClock, 1000);
+}
+```
 * 透過ajax傳送
-* 自動對答
+* 檢測與自動對答
 * 自動keyin Google Sheet 中 
 
 ## 連結網址
