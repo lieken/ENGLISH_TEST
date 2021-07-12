@@ -50,8 +50,6 @@ function initializeClock(id, endtime) {
     if(t.total == 0){
       alert("時間到!趕快交卷!");
     }
-    //daysSpan.innerHTML = t.days;
-    //hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
   }
