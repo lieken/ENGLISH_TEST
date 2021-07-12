@@ -2,7 +2,6 @@
 
 ## 連結網址
 從這裡可以查看 [英文測驗官網](https://engtest2929.herokuapp.com/index.html).
-![英文測驗](/assets/img/sample.png "This is a sample image.")
 
 ## 描述
 
