@@ -61,6 +61,4 @@ function initializeClock(id, endtime) {
 * 檢測與自動對答
 * 自動keyin Google Sheet 中 
 
-## 連結網址
-從這裡可以查看 [英文測驗官網](https://engtest2929.herokuapp.com/index.html).
 ![英文測驗](/assets/img/sample.png "This is a sample image.")
